@@ -2,3 +2,8 @@ en el app js esta lo primero que dejo que fue el arbol binario con los metodos d
 -insercion
 -busqueda
 -imprimir
+
+en la carpeta algoritmos de IA se encuentra el 
+BFS
+DFS
+y el de costo uniforme
