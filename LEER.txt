@@ -7,3 +7,6 @@ en la carpeta algoritmos de IA se encuentra el
 BFS
 DFS
 y el de costo uniforme
+
+
+en la carpeta de la historia de la ia esta lo q pidio q era el resumen de la historia de la ia
