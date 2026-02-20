@@ -1,0 +1,349 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HQ – Minimal Dashboard (Light)</title>
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --panel:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+
+      --radius:14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px 16px 40px;
+    }
+
+    /* Top */
+    .top{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      padding: 6px 0 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 18px;
+    }
+    .top h1{
+      margin:0;
+      font-size: 18px;
+      font-weight: 650;
+      letter-spacing: .2px;
+    }
+    .top p{
+      margin:6px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .search{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      min-width: 260px;
+    }
+    .search input{
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline:none;
+      color: var(--text);
+      font-size: 12px;
+    }
+    .kbd{
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 2px 6px;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+
+    /* Sections */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 14px;
+    }
+
+    .card-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .card-title{
+      font-size: 13px;
+      font-weight: 650;
+      margin:0;
+    }
+
+    .link{
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration:none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+    .link:hover{
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    /* Focus block */
+    .focus{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 12px;
+    }
+    .box{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      background: #fbfbfd;
+    }
+    .label{
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .big{
+      font-size: 15px;
+      font-weight: 700;
+      margin:0 0 6px;
+    }
+    .small{
+      margin:0;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .item{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 10px 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #ffffff;
+    }
+    .item:hover{ background: #fafafa; }
+    .item strong{
+      display:block;
+      font-size: 12.5px;
+      font-weight: 650;
+      margin-bottom: 3px;
+    }
+    .item span{
+      display:block;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .meta{
+      min-width: 0;
+    }
+    .tag{
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 2px 8px;
+      border-radius: 999px;
+      flex: 0 0 auto;
+      margin-top: 2px;
+      background:#fbfbfd;
+    }
+
+    /* Quick access */
+    .quick{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .quick a{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      text-decoration:none;
+      color: var(--text);
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+      background: #ffffff;
+    }
+    .quick a:hover{ background: #fafafa; }
+    .quick strong{ font-size: 12.5px; }
+    .quick span{ font-size: 12px; color: var(--muted); }
+
+    /* Footer actions */
+    .actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      font-size: 12px;
+      cursor:pointer;
+    }
+    .btn:hover{ background: #fafafa; }
+    .btn.primary{
+      border-color: #d1d5db;
+    }
+
+    @media (max-width: 820px){
+      .top{ align-items:stretch; flex-direction:column; }
+      .search{ min-width:0; width:100%; }
+      .focus{ grid-template-columns: 1fr; }
+      .quick{ grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <h1>HQ</h1>
+        <p>Una vista rápida para decidir qué sigue (minimal).</p>
+      </div>
+      <div class="search">
+        <span aria-hidden="true">⌕</span>
+        <input placeholder="Buscar (tareas, notas, docs, viajes)..." />
+        <span class="kbd">Ctrl K</span>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- 1) Focus -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Focus</h2>
+          <a class="link" href="#">Abrir planning</a>
+        </div>
+
+        <div class="focus">
+          <div class="box">
+            <div class="label">Prioridad actual</div>
+            <p class="big">Orden + Salud</p>
+            <p class="small">
+              Q1 2026 • Mantener rutinas y limpiar pendientes clave.
+            </p>
+          </div>
+
+          <div class="box">
+            <div class="label">Meta principal</div>
+            <p class="big">Terminar el setup del HQ</p>
+            <p class="small">
+              Dejar tareas, notas y documentos organizados.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2) Next -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Next</h2>
+          <a class="link" href="#">Ver todas las tareas</a>
+        </div>
+
+        <div class="list">
+          <div class="item">
+            <div class="meta">
+              <strong>Subir PDFs del viaje</strong>
+              <span>Vence mañana</span>
+            </div>
+            <div class="tag">Travel</div>
+          </div>
+
+          <div class="item">
+            <div class="meta">
+              <strong>Revisar prioridades del trimestre</strong>
+              <span>Esta semana</span>
+            </div>
+            <div class="tag">Planning</div>
+          </div>
+
+          <div class="item">
+            <div class="meta">
+              <strong>Organizar notas sueltas en carpetas</strong>
+              <span>Sin fecha</span>
+            </div>
+            <div class="tag">Notes</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3) Quick access -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Quick access</h2>
+          <a class="link" href="#">Personal HQ</a>
+        </div>
+
+        <div class="quick">
+          <a href="#"><strong>Tasks</strong><span>Inbox / Hoy / Semana</span></a>
+          <a href="#"><strong>Projects</strong><span>Activos y en pausa</span></a>
+          <a href="#"><strong>Notes</strong><span>Editor + búsqueda</span></a>
+          <a href="#"><strong>Documents</strong><span>Subir y organizar</span></a>
+          <a href="#"><strong>Travel</strong><span>Itinerario + budget</span></a>
+          <a href="#"><strong>Goals</strong><span>Metas y progreso</span></a>
+          <a href="#"><strong>Priorities</strong><span>Enfoque del momento</span></a>
+          <a href="#"><strong>Folders</strong><span>Ordenar todo</span></a>
+        </div>
+      </section>
+
+      <!-- actions -->
+      <section class="actions">
+        <button class="btn primary" type="button">＋ Nuevo</button>
+        <button class="btn" type="button">Exportar resumen</button>
+        <button class="btn" type="button">Ajustes</button>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+

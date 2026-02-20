@@ -1,0 +1,6 @@
+en el ArbolDeBusqueda.java estan los algoritmos de 
+-Achura
+-Profundidad
+- busqueda de costo uniforme pero de q solo se basa en los costos de que tantos coindieron en uno si uno no, osea no cuenta todos los elementos del estado, solo la mitad
+y en base a eso elige el que tenga mejor score para seguir
+en el puzzle8.java solo es de q esta el metodo de generacion de hijos

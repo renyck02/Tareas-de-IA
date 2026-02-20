@@ -1,0 +1,4 @@
+en el app js esta lo primero que dejo que fue el arbol binario con los metodos de 
+-insercion
+-busqueda
+-imprimir
