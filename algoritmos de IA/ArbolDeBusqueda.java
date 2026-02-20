@@ -107,7 +107,7 @@ public class ArbolDeBusqueda {
         Nodo mejor = null;
         int mejorScore = Integer.MIN_VALUE;
 
-        // Guardamos los candidatos no visitados para fallback
+        // guardamos los candidatos no visitados para fallback
         List<Nodo> candidatos = new java.util.ArrayList<>();
 
         for (Nodo sucesor : sucesores) {
