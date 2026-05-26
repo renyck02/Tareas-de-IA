@@ -1,0 +1,25 @@
+- Narrador IA de Rocket League -
+
+Una aplicación web automatizada que analiza partidas de Rocket League, detecta jugadas destacadas mediante visión computacional y genera narraciones en voz alta utilizando modelos de Inteligencia Artificial (SLM y TTS).
+
+- Arquitectura del Sistema -
+
+El proyecto sigue un patrón de diseño modular y automatizado, dividiendo las responsabilidades en tres núcleos principales coordinados desde una interfaz gráfica:
+
+1.  **Interfaz: Construido con "Streamlit". Es la interfaz grafica que recibe el archivo de video (.mp4) ingresado por el usuario y deja ejecutar el codigo.
+2.  **La heuristica: Utiliza "OpenCV" para muestrear los frames del video. Utiliza "EasyOCR" para leer el texto en pantalla y el modelo "Vision Transformer (ViT)" entrenado a la medida para clasificar el contexto visual de la jugada.
+3.  **Módulo de narracion: Utiliza el SLM "Qwen/Qwen2.5-0.5B-Instruct" mediante un prompt estricto de analista táctico para redactar la narración sin alucinaciones.
+4.  **Text-to-Speech: Utiliza "facebook/mms-tts-spa" de Hugging Face para sintetizar la narración en audio nativo.
+5.  **Módulo de Renderizado:** Utiliza "MoviePy" con aceleración de hardware (GPU) para juntar el audio original con las narraciones generadas en el segundo exacto de la jugada, exportando un nuevo archivo ".mp4" con corrección de color YUV420p.
+
+- Requisitos Técnicos -
+
+* Python 3.10 o superior.
+* Tarjeta gráfica con soporte de aceleración (NVIDIA NVENC o AMD AMF) recomendada para el renderizado final.
+
+- Librerías principales -
+"pip install streamlit opencv-python easyocr torch transformers moviepy==1.0.3 scipy numpy"
+
+= El codigo se corre con "python -m streamlit run app.py". =
+
+Miembros del equipo: Beltran Heredia Jose Armando, Diaz Oleta Rene, Encines Beltran Carlos Gabriel, Monge Shimizu Fernando

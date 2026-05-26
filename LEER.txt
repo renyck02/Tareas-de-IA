@@ -13,3 +13,7 @@ en la carpeta de la historia de la ia esta lo q pidio q era el resumen de la his
 
 en la carpeta de 24 puzzle esta el codigo que use para hacer los algoritmos y esta la tabla comparativa pero el video ese se subio por teams ya que 
 github no permite subir videos tan pesados
+
+en la carpeta Narrador-rocket-league se encuentra el narrador de la IA
+
+en la carpeta DatSETIA esta la tarea donde se usa un modelo para reconocer los faces
